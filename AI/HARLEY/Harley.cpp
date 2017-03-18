@@ -13,6 +13,7 @@
 
 using namespace std;
 
+void start();
 void director_key();
 
 int main()
@@ -41,6 +42,11 @@ int main()
     cout << "I have started my core programing and am ready to help you." <<endl;
     sleep(1);
     system("cls");
+    start();
+}
+
+void start()
+{
     cout <<"TitanOS Harley has Started"<<endl;
     cout <<"what must I do for you?"<<endl;
     string choice;
@@ -75,7 +81,7 @@ if(choice == "info")
 
     if(choice == "Protocol X")
         {
-            int code
+            string code;
             cout << "This section is restricted" << endl;
             cout << "Please enter your Tier 2 Director code:" << endl;
             cin >> code;
@@ -145,7 +151,7 @@ if(choice == "info")
                 }
             if (quit == "n")
                 {
-                    goto loop;  
+                    start();  
                 }
         }
 }
