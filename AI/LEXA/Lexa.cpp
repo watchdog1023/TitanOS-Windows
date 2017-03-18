@@ -25,6 +25,7 @@ string task;
 
 int main()
 {
+    system("color 02");
     string code;
     cout << "Please enter Director code:" << endl;
     cin >> code;
@@ -87,6 +88,7 @@ void lexa()
         cout <<"[rouge] Protocol"<<endl;
         cout <<"The [flame] is dead"<<endl;
         cout <<"[purge] system"<<endl;
+        cout << "[protocol X]" << endl;
         cin >> task;
         if(task == "kill")
          {
@@ -151,6 +153,24 @@ void lexa()
                 lexa();
             }
          }
+        if(task == "protocol x")
+            {
+                cout << "You have chosing 'Protocol X'" << endl;
+                string mean;        
+                cout << "Do you know what this means?" << endl;
+                cin >> mean;
+                if(mean == "yes")
+                    {
+                        sleep(2);
+                        cout << "Protocal X is not ready as yet" << endl;
+                    }
+                if(mean == "no")
+                    {
+                        cout << "Protocol X is..." << endl;
+                        sleep(2);
+                        cout << "Protocal X is not ready as yet" << endl;
+                    }
+            }
     
     }
 

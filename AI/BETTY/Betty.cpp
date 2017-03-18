@@ -18,6 +18,7 @@ void director_key();
 
 int main()
 {
+    system("color 02");
     cout <<"Hi,I am TitanOS AI Betty."<< endl;
     cout <<"I am starting the core functions of my program now."<<    endl;
     cout <<"Please wait"<<endl;
@@ -47,7 +48,7 @@ int main()
 
 void start()
 {
-    cout <<"TitanOS Betty has Started"<<endl;
+    cout <<"TitanOS 'Betty' has Started"<<endl;
     cout <<"what must I do for you?"<<endl;
     string choice;
     cout<<"info"<<endl;
