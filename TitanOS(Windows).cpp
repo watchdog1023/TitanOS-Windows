@@ -36,11 +36,11 @@ void start()
 			cin >> final;
 			if(final == "y")
 				{
-					system("alexa");
+					system("start AI/alexa/alexa.exe");
 				}
 			if(final == "n")
 				{
-					system("clear");
+					system("cls");
 					start();
 				}
 		}
@@ -51,11 +51,11 @@ void start()
 			cin >> final;
 			if(final == "y")
 				{
-					system("betty");
+					system("start AI/betty/betty.exe");
 				}
 			if(final == "n")
 				{
-					system("clear");
+					system("cls");
 					start();
 				}
 		}
@@ -66,11 +66,11 @@ void start()
 			cin >> final;
 			if(final == "y")
 				{
-					system("harley");
+					system("start AI/harley/harley.exe");
 				}
 			if(final == "n")
 				{
-					system("clear");
+					system("cls");
 					start();
 				}
 		}
@@ -81,11 +81,11 @@ void start()
 			cin >> final;
 			if(final == "y")
 				{
-					system("lexa");
+					system("start AI/lexa/lexa.exe");
 				}
 			if(final == "n")
 				{
-					system("clear");
+					system("cls");
 					start();
 				}
 		}
@@ -96,11 +96,11 @@ void start()
 			cin >> final;
 			if(final == "y")
 				{
-					system("sid");
+					system("start AI/sid/sid.exe");
 				}
 			if(final == "n")
 				{
-					system("clear");
+					system("cls");
 					start();
 				}
 		}
