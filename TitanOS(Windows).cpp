@@ -15,6 +15,7 @@ void start();
 
 int main()
 {
+	system("color 02");
 	start();
 }
 
