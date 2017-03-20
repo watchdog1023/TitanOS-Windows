@@ -14,7 +14,6 @@
 using namespace std;
 
 void start();
-void director_key();
 
 int main()
 {
@@ -66,30 +65,39 @@ void start()
             cin >> info;
             if(info == "info")
                 {
-                    cout << "" << endl;
-                    
+                    cout << "I was created to perform one task control a titan.I'm one of five AI's." << endl;
+                    sleep(2);
+                    cout <<    "I was modelled after the first titan pilot." << endl;
+                    sleep(2);
+                    cout << "Who died during the first titamfall." << endl;
+                    sleep(2);
+                    cout << "He will live on in me" << endl;
+                    sleep(2);
+                    cout << "I have two directives:" << endl;
+                    sleep(2);
+                    cout << "1)Run the Titan" << endl;
+                    cout << "2)Serve Lexa" << endl;
+                    sleep(10);
+                    start();
                 }
             
             if(info == "titanos")
                 {
                     cout << "" << endl;
+                    start();
                 }
             
             if(info == "purpose")
                 {
                     cout << "" << endl;
+                    start();
                 }   
        }
 
     if(choice == "Protocol X")
         {
-            string code;
             cout << "This section is restricted" << endl;
-            cout << "Please enter your Tier 2 Director code:" << endl;
-            cin >> code;
-            if(code == "1023")
-                {
-                    cout << "Welcome ,Tier 2 Director" << endl;
+            sleep(2);
                     cout << "Redirecting to TitanOS Kernel AI" << endl;
                     cout << "Please wait" << endl;
                     cout <<"........" <<endl;
@@ -104,8 +112,9 @@ void start()
                     sleep(2);
                     cout <<"........" <<endl;
                     sleep(2);
-                    system("cls");
-                    director_key();
+                    system("cd ..");
+                    system("start AI/lexa/lexa.exe");
+                    system("exit");
                 }
         }
     if(choice == "quit")
@@ -157,23 +166,3 @@ void start()
                 }
         }
 }
-
-void director_key()
-    {
-        cout << "Welcome Tier 2 Director" << endl;
-        cout << "You have chosing 'Protocol X'" << endl;
-        string mean;        
-        cout << "Do you know what this means?" << endl;
-        cin >> mean;
-        if(mean == "yes")
-            {
-                sleep(2);
-                cout << "Protocal X is not ready as yet" << endl;
-            }
-        if(mean == "no")
-            {
-                cout << "Protocol X is..." << endl;
-                sleep(2);
-                cout << "Protocal X is not ready as yet" << endl;
-            }
-    }   
