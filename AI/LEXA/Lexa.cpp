@@ -48,6 +48,11 @@ int main()
          cout << "Welcome Tier II Director,Sheldon" << endl;
          boot();
      }
+     if(code == "1408")
+     {
+         cout << "Welcome Tier II Director,Jessie" << endl;
+         boot();
+     }
 }
 
 void boot()
