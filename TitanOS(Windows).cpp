@@ -12,15 +12,54 @@
 using namespace std;
 
 void start();
+void boot();
+void training();
+void training_recruit();
+void training_battle();
+void training_titan();
 
 int main()
 {
+	boot();
+}
+
+void boot()
+{
 	system("color 02");
-	start();
+	string pass;
+	cout << "  ___________________________________________ " << endl;
+	cout << " |     _________________________________     | " << endl;
+	cout << " |    |       |                 |       |    | " << endl;
+	cout << " |   |        |                 |        |   | " << endl;
+	cout << " |  |         |_________________|         |  | " << endl;
+	cout << " | |          |                 |          | | " << endl;
+	cout << " | |          |                 |          | | " << endl;
+	cout << " | |          |     Welcome     |          | | " << endl;
+	cout << " | |          |      Pilot      |          | | " << endl;
+	cout << " | |          |                 |          | | " << endl;
+	cout << " | |          |_________________|          | | " << endl;
+	cout << " | |          |                 |          | | " << endl;
+	cout << " |  |         |                 |         |  | " << endl;
+	cout << " |   |        |                 |        |   | " << endl;
+	cout << " |    |_______|_________________|_______|    | " << endl;
+	cout << " |___________________________________________| " << endl;
+	cout << "What would you like to do?" << endl;
+	cout << "Pilot Trainning [sim]" << endl;
+	cout << "Start TitanOS [main] System" << endl;
+	cin >> pass;
+	if(pass == "main")
+		{
+			start();
+		}
+	if(pass == "sim")
+		{
+			training();
+		}
 }
 
 void start()
 {
+	system("color 02");
 	string ai_choice;
 	cout << "Which AI would you like to use?" << endl;
 	cout << "Alexa" << endl;
@@ -107,3 +146,41 @@ void start()
 		}
 	
 }
+
+void training()
+	{
+		string diff;
+		cout << "Welcome New or Returning Pilot" << endl;
+		cout << "Please Chose your level of Experience" << endl;
+		cout << "[recruit]" << endl;
+		cout << "[battle] hardened" << endl;
+		cout << "[titan] master" << endl;
+		cin >> diff;
+		if(diff == "recruit")
+			{
+				training_recruit();			
+			}
+		if(diff == "battle")
+			{
+				training_battle();
+			}
+		if(diff == "titan")
+			{
+				training_titan();
+			}
+}
+
+void training_recruit()
+	{
+
+	}
+
+void training_battle()
+	{
+
+	}
+
+void training_titan()
+	{
+
+	}
