@@ -11,6 +11,7 @@
 
 using namespace std;
 
+//void Prototypes
 void start();
 void boot();
 void training();
