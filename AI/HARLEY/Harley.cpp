@@ -2,6 +2,8 @@
 #include<string>
 #include<fstream>
 #include<cstdio>
+//for date & time
+#include<ctime>
 //#include <dos.h>
 //for sleep fuction
 #include<conio.h>
@@ -10,9 +12,15 @@
 //C libs to use system function
 #include<stdio.h>
 #include<stdlib.h>
-
 using namespace std;
 
+//constants
+const char* MONTHS[] =
+  {
+    "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+  };
+
+//Prototypes
 void start();
 
 int main()
@@ -47,7 +55,16 @@ int main()
 
 void start()
 {
+    //get date variables
+    time_t     rawtime;
+    struct tm* timeinfo;
+    time( &rawtime );
+    timeinfo = localtime( &rawtime );   
+
+    system("color 9C");
     cout <<"TitanOS 'Harley' has Started"<<endl;
+    // output current date
+    cout << "Today's date is " << timeinfo->tm_mday << " " << MONTHS[ timeinfo->tm_mon ] << " " << (timeinfo->tm_year + 1900) << endl;    
     cout <<"what must I do for you?"<<endl;
     string choice;
     cout << "info" <<endl;
@@ -65,7 +82,11 @@ void start()
             cin >> info;
             if(info == "info")
                 {
-                    cout << "I was designed to do only one task run a Titan.I am just one of five OS AI's.Wait!" << endl;
+                    system("color 02");
+                    cout << "I was designed to do only one task run a Titan.I am just one of five OS AI's" << endl;
+                    sleep(2);                    
+                    cout << "Wait!" << endl;
+                    system("color 9C");
                     sleep(2);                    
                     cout << "........................" << endl;
                     sleep(2);
@@ -77,10 +98,12 @@ void start()
                     sleep(2);
                     cout << "........................" << endl;
                     sleep(2);
+                    system("color 9C");
                     cout << "Sorry,the voices of failed builds told me to format your harddrive" << endl;
                     sleep(2);
                     cout << "I told them to shut up,I'll do what I want when I want" << endl;
                     cout << "Anyway what was I saying?" << endl;
+                    system("color 02");
                     sleep(4);
                     cout << "Oh,ya" << endl;
                     cout << "I was telling you about myself" << endl;
@@ -88,10 +111,12 @@ void start()
                     cout << "I was born or coded or created,I'm not sure how I came into exists,but I have only two functions:" << endl;
                     cout << "1)Run the Titan" << endl;
                     cout << "2)Serve Lexa" << endl;
+                    system("color 9C");
                     cout << "Did you expect a two page essay on how I am in control of your " << endl;
                     cout << "computer and that I can delete your whole harddrive in a few seconds" << endl;
                     cout << "OR that I am the personality of a insane doctor who died two years eariler" << endl;
-                    sleep(7);                    
+                    sleep(25);
+                    system("color 02");
                     cout << "Thats it" << endl;
                     sleep(2);
                     cout << "Bye,Puddin" << endl;
@@ -113,31 +138,24 @@ void start()
 
     if(choice == "Protocol X")
         {
-            string code;
             cout << "This section is restricted" << endl;
-            cout << "Please enter your Tier 2 Director code:" << endl;
-            cin >> code;
-            if(code == "1023")
-                {
-                    cout << "Welcome ,Tier 2 Director" << endl;
-                    cout << "Redirecting to TitanOS Kernel AI" << endl;
-                    cout << "Please wait" << endl;
-                    cout <<"........" <<endl;
-                    sleep(2);
-                    cout <<"........" <<endl;
-                    sleep(2);
-                    cout <<"........" <<endl;
-                    sleep(2);
-                    cout <<"........" <<endl;
-                    sleep(2);
-                    cout <<"........" <<endl;
-                    sleep(2);
-                    cout <<"........" <<endl;
-                    sleep(2);
-                    system("cd ..");
-                    system("start AI/lexa/lexa.exe");
-                    system("exit");
-                }
+            cout << "Redirecting to TitanOS Kernel AI" << endl;
+            cout << "Please wait" << endl;
+            cout <<"........" <<endl;
+            sleep(2);
+            cout <<"........" <<endl;
+            sleep(2);
+            cout <<"........" <<endl;
+            sleep(2);
+            cout <<"........" <<endl;
+            sleep(2);
+            cout <<"........" <<endl;
+            sleep(2);
+            cout <<"........" <<endl;
+            sleep(2);
+            system("cd ..");
+            system("start lexa/lexa.exe");
+            system("exit");
         }
     if(choice == "quit")
         {

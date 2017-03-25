@@ -2,6 +2,8 @@
 #include<string>
 #include<fstream>
 #include<cstdio>
+//for date & time
+#include<ctime>
 //#include <dos.h>
 //for sleep fuction
 #include<conio.h>
@@ -10,9 +12,15 @@
 //C libs to use system function
 #include<stdio.h>
 #include<stdlib.h>
-
 using namespace std;
 
+//constants
+const char* MONTHS[] =
+  {
+    "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+  };
+
+//Protoypes
 void start();
 
 int main()
@@ -47,7 +55,16 @@ int main()
 
 void start()
 {
+    //get date variables
+    time_t     rawtime;
+    struct tm* timeinfo;
+    time( &rawtime );
+    timeinfo = localtime( &rawtime );   
+
+    system("color 02");
     cout <<"TitanOS 'Sid' has Started"<<endl;
+    // output current date
+    cout << "Today's date is " << timeinfo->tm_mday << " " << MONTHS[ timeinfo->tm_mon ] << " " << (timeinfo->tm_year + 1900) << endl;    
     cout <<"what must I do for you?"<<endl;
     string choice;
     cout<<"info"<<endl;
@@ -115,8 +132,8 @@ void start()
                     system("cd ..");
                     system("start AI/lexa/lexa.exe");
                     system("exit");
-                }
         }
+
     if(choice == "quit")
         {
             string quit;

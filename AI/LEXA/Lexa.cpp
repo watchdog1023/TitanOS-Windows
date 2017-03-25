@@ -4,7 +4,9 @@
 #include<string>
 #include<fstream>
 #include<cstdio>
-//#include <dos.h>
+//for date & time
+#include<ctime>
+//#include<dos.h>
 //for sleep fuction
 #include<conio.h>
 #include<windows.h>
@@ -12,8 +14,13 @@
 //C libs to use system function
 #include<stdio.h>
 #include<stdlib.h>
-
 using namespace std;
+
+//constants
+const char* MONTHS[] =
+  {
+    "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+  };
 
 //Prototypes
 void lexa();
@@ -87,6 +94,15 @@ void boot()
 
 void lexa()
     {
+        //get date variables
+        time_t     rawtime;
+        struct tm* timeinfo;
+        time( &rawtime );
+        timeinfo = localtime( &rawtime );   
+
+        system("color 02");
+        // output current date
+    cout << "Today's date is " << timeinfo->tm_mday << " " << MONTHS[ timeinfo->tm_mon ] << " " << (timeinfo->tm_year + 1900) << endl;
         cout << "What task must I preform?" << endl;
         sleep(2);        
         cout << "[kill] the Others"<<endl;
