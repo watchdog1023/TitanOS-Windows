@@ -14,6 +14,7 @@
 //C libs to use system function
 #include<stdio.h>
 #include<stdlib.h>
+
 using namespace std;
 
 //constants
@@ -26,6 +27,7 @@ const char* MONTHS[] =
 void lexa();
 void boot();
 void tier1();
+void debug();
 
 //global variables
 string task;
@@ -38,28 +40,50 @@ int main()
     cin >> code;
     if(code == "2046")
         {
-            cout << "Welcome Tier II Director,Steven" << endl;
-            boot();
+          cout << "Welcome Tier II Director,Steven" << endl;
+          sleep(5);
+          boot();
         }
     if(code == "2109")
-    {
-     cout << "Welcome Tier II Director,Serena" << endl;
-     boot();
-    }
+      {
+        cout << "Welcome Tier II Director,Serena" << endl;
+        sleep(5);
+        boot();
+      }
     if(code == "1023")
-        {
-           tier1();
-        }
-     if(code == "1738")
-     {
-         cout << "Welcome Tier II Director,Sheldon" << endl;
-         boot();
-     }
-     if(code == "1408")
-     {
-         cout << "Welcome Tier II Director,Jessie" << endl;
-         boot();
-     }
+      {
+        tier1();
+      }
+    if(code == "1738")
+      {
+        cout << "Welcome Tier II Director,Sheldon" << endl;
+        sleep(5);
+        boot();
+      }
+    if(code == "1408")
+      {
+        cout << "Welcome Tier II Director,Jessie" << endl;
+        sleep(5);
+        boot();
+      }
+    if(code == "1095")
+      {
+        cout << "Welcome TitanOS Tech" << endl;
+        sleep(5);
+        debug();
+      }
+    if(code != "1023", "2109", "1738", "1408", "2046", "1095")
+      {
+        cout << "You are not a Director!" << endl;
+        sleep(5);
+        cout << "Please use one of the base AI's" << endl;
+        cout << "Goodbye" << endl;
+        sleep(5);
+        system("cd ..");
+        system("cd ..");
+        system("start TitanOS.exe");
+        system("exit");
+      }
 }
 
 void boot()
@@ -93,25 +117,25 @@ void boot()
 }
 
 void lexa()
-    {
-        //get date variables
-        time_t     rawtime;
-        struct tm* timeinfo;
-        time( &rawtime );
-        timeinfo = localtime( &rawtime );   
+  {
+      //get date variables
+      time_t     rawtime;
+      struct tm* timeinfo;
+      time( &rawtime );
+      timeinfo = localtime( &rawtime );   
 
-        system("color 02");
-        // output current date
-    cout << "Today's date is " << timeinfo->tm_mday << " " << MONTHS[ timeinfo->tm_mon ] << " " << (timeinfo->tm_year + 1900) << endl;
-        cout << "What task must I preform?" << endl;
-        sleep(2);        
-        cout << "[kill] the Others"<<endl;
-        cout <<"[rouge] Protocol"<<endl;
-        cout <<"The [flame] is dead"<<endl;
-        cout <<"[purge] system"<<endl;
-        cout << "[protocol X]" << endl;
-        cin >> task;
-        if(task == "kill")
+      system("color 02");
+      // output current date
+      cout << "Today's date is " << timeinfo->tm_mday << " " << MONTHS[ timeinfo->tm_mon ] << " " << (timeinfo->tm_year + 1900) << endl;
+      cout << "What task must I preform?" << endl;
+      sleep(2);        
+      cout << "[kill] the Others"<<endl;
+      cout <<"[rouge] Protocol"<<endl;
+      cout <<"The [flame] is dead"<<endl;
+      cout <<"[purge] system"<<endl;
+      cout << "[protocol X]" << endl;
+      cin >> task;
+      if(task == "kill")
          {
             string sure;
             cout <<"Are you sure they deserve to die?"<<endl;
@@ -164,7 +188,7 @@ void lexa()
 //this is a temp statement
                 cout <<"This feature is no ready because this is a reusable build"<<endl;
 //this is a temp statement
-                cout << "Good Bye" << endl;
+                cout << "GoodBye" << endl;
                 //system("cd /");
                 //system("rm -vr /");
             }
@@ -209,6 +233,27 @@ void tier1()
             }
         if(dia == "n")
             {
-                cout << "Ok" << endl;
+              cout << "Ok" << endl;
+              lexa();
             }
     }
+
+void debug()
+  {
+    cout << "I am Lexa" << endl;
+    sleep(2);            
+    cout << "I am the TitanOS Commander" << endl;
+    sleep(2);
+    cout << "You are a TitanOS Tech" << endl;
+    string debug;
+    cout << "Do you want me to start a Terminal" << endl;
+    cin >> debug;
+    if(debug == "Yes", "yes", "YES", "Y", "y")
+      {
+        system("cmd");
+      }
+    if(debug == "No", "no", "NO", "N", "n")
+      {
+        main();  
+      }
+}
