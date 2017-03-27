@@ -1,4 +1,4 @@
-//This AI incharge of a the titan platforms and space elevator in project titan 
+//This AI is incharge of all the titan platforms and the space elevator in project Titan 
 #include<iostream>
 #include<string>
 #include<fstream>
@@ -53,7 +53,7 @@ int main()
         cout << "Which Platform will I be Operating On?" << endl;
         cin >> plat;
         
-        if(plat == "")
+        if(plat == " ")
           {
             
           }
@@ -72,14 +72,18 @@ int main()
           
           if(dia == "no")
           {
-            
+            string job;
+cout << "What Job must I do then?" << endl;
+cin >> job;
           }
           
       }
   
     if(envir != "1", "2")
       {
-
+          string job;
+cout << "What Job must I do then?" << endl;
+cin >> job;
       }
 
 
