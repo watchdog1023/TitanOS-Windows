@@ -245,6 +245,7 @@ void debug()
     cout << "I am the TitanOS Commander" << endl;
     sleep(2);
     cout << "You are a TitanOS Tech" << endl;
+    sleep(2);
     string debug;
     cout << "Do you want me to start a Terminal" << endl;
     cin >> debug;
