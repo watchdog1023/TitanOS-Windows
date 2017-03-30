@@ -77,6 +77,8 @@ void start()
 			cin >> final;
 			if(final == "y")
 				{
+					system("cd ..");
+					system("cd ..");
 					system("start AI/alexa/alexa.exe");
 				}
 			if(final == "n")
@@ -92,6 +94,8 @@ void start()
 			cin >> final;
 			if(final == "y")
 				{
+					system("cd ..");
+					system("cd ..");
 					system("start AI/betty/betty.exe");
 				}
 			if(final == "n")
@@ -107,6 +111,8 @@ void start()
 			cin >> final;
 			if(final == "y")
 				{
+					system("cd ..");
+					system("cd ..");
 					system("start AI/harley/harley.exe");
 				}
 			if(final == "n")
@@ -122,6 +128,8 @@ void start()
 			cin >> final;
 			if(final == "y")
 				{
+					system("cd ..");
+					system("cd ..");
 					system("start AI/lexa/lexa.exe");
 				}
 			if(final == "n")
@@ -137,6 +145,8 @@ void start()
 			cin >> final;
 			if(final == "y")
 				{
+					system("cd ..");
+					system("cd ..");
 					system("start AI/sid/sid.exe");
 				}
 			if(final == "n")
