@@ -5,7 +5,6 @@
 #include<cstdio>
 //for date & time
 #include<ctime>
-//#include<dos.h>
 //for sleep fuction
 #include<conio.h>
 #include<windows.h>
@@ -13,6 +12,7 @@
 //C libs to use system function
 #include<stdio.h>
 #include<stdlib.h>
+//#include<dos.h>
 
 using namespace std;
 
@@ -41,17 +41,17 @@ int main()
 				cin >> act;
 				if(act == "Network", "NETWORK", "network")
 					{
-						
+						system("start AI/raven/raven.exe");
 					}
-
+		
 				if(act == "debuging", "DEBUGING", "Debuging")
 					{
-						
+						system("start AI/lexa/lexa.exe");
 					}
 			}
-	
+		
 		if(choice == "Pilot", "pilot", "PILOT")
 			{
-				
+				system("start Sub-System/PilotOS/PilotOS.exe");
 			}
 	}
