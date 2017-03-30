@@ -1,8 +1,13 @@
 //TitanOS Kernel AI(AI commander)
 //build lexa_come_treekru
 #include<iostream>
-#include<string>
+#include<sstream>
 #include<fstream>
+#include<string>
+#include<vector>
+#include<cmath>
+#include<cstdlib>
+#include<cassert>
 #include<cstdio>
 //for date & time
 #include<ctime>
@@ -28,11 +33,27 @@ void lexa();
 void boot();
 void tier1();
 void debug();
+void bootinit();
 
 //global variables
 string task;
 
 int main()
+{  
+  ofstream file("flame.txt");
+  if(file.is_open())
+    {
+//Story of the Flame
+//I'm Becca come hada.I have been in the flame for 10 years now,
+//I give guidance to the current commander(hada),Lexa.
+//I will continue to guide Lexa to do the best she can in order for her to control the system.
+//http://www.online-toolz.com/tools/text-encryption-decryption.php
+      file << "IR8xPRND6PBFTM0/XNIwWHQhuKixUl48ATy8rrluxszs0ffa2ad5xwtAORHwChN2yMrLW3vn8feQ7/j2UBqCIKYKSMHxSN/Va7nBS6INxwsvRgOjwDW6QABf/a4SPAr+QctoKtPrIos9J5We2t44yL2UJU/MXCO5xi7eH/joxWSP4LuqMYC+2cBNhsvT/7lfP0ECgC/3//ZM1IoyNOXf9CG4aGc2o8KyztiwXXFsCoz18DmoEOn58UbMpZaQ6rYIJlzzM7a6ZPYD0InTF6VUAeNPpoQge+txRcPEbIwf4yo=" << endl;
+      bootinit();      
+    }
+}
+
+void bootinit()
 {
     system("color 02");
     string code;
@@ -72,7 +93,13 @@ int main()
         sleep(5);
         debug();
       }
-    if(code != "1023", "2109", "1738", "1408", "2046", "1095")
+    if(code == "2026")
+      {
+        cout << "Welcome Tier II Director,Cameron" << endl;
+        sleep(5);
+        boot();
+      }
+    if(code != "1023", "2109", "1738", "1408", "2046", "1095", "2026")
       {
         cout << "You are not a Director!" << endl;
         sleep(5);
@@ -88,32 +115,36 @@ int main()
 
 void boot()
 {
-            cout << "System starting up" << endl;
-            sleep(2);
-            cout << "Counting all AI's" << endl;
-            cout << "'Betty' = [Slave]" << endl;
-            sleep(2);
-            cout << "................." << endl;
-            sleep(2);
-            cout << "'Sid' = [Slave]" << endl;
-            sleep(2);
-            cout << "................." << endl;
-            sleep(2);
-            cout << "'Alexa' = [Slave]" << endl;
-            sleep(2);
-            cout << "................." << endl;
-            sleep(2);
-            cout << "'Harley' = [Slave]" << endl;
-            sleep(2);
-            cout << "................." << endl;
-            sleep(2);            
-            cout << "Commander Lexa = [Online]" << endl;
-            sleep(2);
-            system("cls");
-            cout << "I am Lexa" << endl;
-            sleep(2);            
-            cout << "I am the TitanOS Commander" << endl;
-            lexa();
+    cout << "System starting up" << endl;
+    sleep(2);
+    cout << "Counting all AI's" << endl;
+    cout << "'Betty' = [Slave]" << endl;
+    sleep(2);
+    cout << "................." << endl;
+    sleep(2);
+    cout << "'Sid' = [Slave]" << endl;
+    sleep(2);
+    cout << "................." << endl;
+    sleep(2);
+    cout << "'Alexa' = [Slave]" << endl;
+    sleep(2);
+    cout << "................." << endl;
+    sleep(2);
+    cout << "'Harley' = [Slave]" << endl;
+    sleep(2);
+    cout << "................." << endl;
+    sleep(2);
+    cout << "'Raven' = [Chief Mechanic]" << endl;
+    sleep(2);
+    cout << "................." << endl;
+    sleep(2);
+    cout << "Commander Lexa = [Online]" << endl;
+    sleep(2);
+    system("cls");
+    cout << "I am Lexa" << endl;
+    sleep(2);            
+    cout << "I am the TitanOS Commander" << endl;
+    lexa();
 }
 
 void lexa()
@@ -140,7 +171,7 @@ void lexa()
             string sure;
             cout <<"Are you sure they deserve to die?"<<endl;
             cin >> sure;
-            if(sure == "y")
+            if(sure == "Yes", "yes", "YES", "Y", "y")
                 {
 //this is a temp statement
                     cout << "This will do nothing" << endl;
@@ -162,28 +193,42 @@ void lexa()
                     system("cls");
                     lexa();
                 }
-            if(sure != "y")
+            if(sure != "Yes", "yes", "YES", "Y", "y")
                 {
                     cout << "They Live another day." << endl;
                     system("cls");
                     lexa();
                 }
-        }  
-        if(task == "rouge")
-         {
-            cout <<""<<endl;
+        }
 
-         }
+        if(task == "rouge")
+          {
+            cout << "" << endl;
+          }
+
         if(task == "flame")
          {
-            cout <<""<<endl;
+            string flamesure;
+            cout << "Are you sure?" << endl;
+            if(flamesure == "Yes", "yes", "YES", "Y", "y")
+              {
+                cout << "" << endl;
+                cout << "" << endl;
+              }
+            if(flamesure != "Yes", "yes", "YES", "Y", "y")
+              {
+                cout << "Thank The Creator" << endl;
+                sleep(5);
+                lexa();
+              }
          }
+
         if(task == "purge")
          {
             string sure;
             cout << "Are you sure?" << endl;
             cin >> sure;
-            if(sure == "y")
+            if(sure == "Yes", "yes", "YES", "Y", "y")
             { 
 //this is a temp statement
                 cout <<"This feature is no ready because this is a reusable build"<<endl;
@@ -192,24 +237,25 @@ void lexa()
                 //system("cd /");
                 //system("rm -vr /");
             }
-            if(sure != "y")
+            if(sure != "Yes", "yes", "YES", "Y", "y")
             {
                 system("cls");
                 lexa();
             }
          }
+
         if(task == "protocol x")
             {
                 cout << "You have chosing 'Protocol X'" << endl;
                 string mean;        
                 cout << "Do you know what this means?" << endl;
                 cin >> mean;
-                if(mean == "yes")
+                if(mean == "Yes", "yes", "YES", "Y", "y")
                     {
                         sleep(2);
                         cout << "Protocal X is not ready as yet" << endl;
                     }
-                if(mean == "no")
+                if(mean != "Yes", "yes", "YES", "Y", "y")
                     {
                         cout << "Protocol X is..." << endl;
                         sleep(2);
@@ -217,7 +263,7 @@ void lexa()
                     }
             }
     
-    }
+  }
 
 void tier1()
     {
@@ -226,12 +272,12 @@ void tier1()
         sleep(2);
         cout << "Welcome Tier 1 Opperator,must I run a diagnostic test?" << endl;
         cin >> dia;
-        if(dia == "y")
+        if(dia == "Yes", "yes", "YES", "Y", "y")
             {
                 cout << "OK" << endl;
-                
+                lexa();
             }
-        if(dia == "n")
+        if(dia != "Yes", "yes", "YES", "Y", "y")
             {
               cout << "Ok" << endl;
               lexa();
@@ -245,7 +291,6 @@ void debug()
     cout << "I am the TitanOS Commander" << endl;
     sleep(2);
     cout << "You are a TitanOS Tech" << endl;
-    sleep(2);
     string debug;
     cout << "Do you want me to start a Terminal" << endl;
     cin >> debug;
@@ -253,7 +298,7 @@ void debug()
       {
         system("cmd");
       }
-    if(debug == "No", "no", "NO", "N", "n")
+    if(debug != "Yes", "yes", "YES", "Y", "y")
       {
         main();  
       }

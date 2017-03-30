@@ -79,6 +79,7 @@ void start()
             cout << "[info] at the AI" << endl;
             cout << "info about [titanos]" << endl;
             cout << "info about the [purpose] of TitanOS" << endl;
+            cout << "Info about Project [titan]" << endl;
             cin >> info;
             if(info == "info")
                 {
@@ -101,15 +102,33 @@ void start()
             if(info == "titanos")
                 {
                     cout << "" << endl;
+                    system("cls");
                     start();
                 }
             
             if(info == "purpose")
                 {
                     cout << "" << endl;
+                    system("cls");                    
                     start();
-                }   
+                }
+          if(info == "titan")
+              {
+                cout << "It is an idea where we put gaint man controlled/AI control robots(Titans) on space stations(Titan Platforms) which lives in lower earth orbit(LEO) " << endl;
+                cout << "then when the pilots call their Titans they will be released from the platforms and dropped onto the earths surface to keep the 'peace'." << endl;
+                cout << "When they are done they will come to my space elevator platform to be launched to the elevator holding station in space,waiting for the Titan platform to come n collecte it." << endl;
+                sleep(25);
+                system("cls");
+                start();
+              }
        }
+
+    if(choice == "Lexa come treekru")
+      {
+        system("cd ..");
+        system("start lexa/Lexa.exe");
+        system("exit");
+      }
 
     if(choice == "Protocol X")
         {
@@ -179,7 +198,8 @@ void start()
                 }
             if (quit == "n")
                 {
-                    start();  
+                  system("cls");
+                  start();  
                 }
         }
 }

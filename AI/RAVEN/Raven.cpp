@@ -1,7 +1,13 @@
-//This AI is incharge of all the titan platforms and the space elevator in project Titan 
+//This AI incharge of a the titan platforms and space elevator in project titan
+//build raven_come_skykru
 #include<iostream>
-#include<string>
+#include<sstream>
 #include<fstream>
+#include<string>
+#include<vector>
+#include<cmath>
+#include<cstdlib>
+#include<cassert>
 #include<cstdio>
 //for date & time
 #include<ctime>
@@ -52,8 +58,8 @@ int main()
         string plat;
         cout << "Which Platform will I be Operating On?" << endl;
         cin >> plat;
-        
-        if(plat == " ")
+//There will be Ten Total Platforms
+        if(plat == "1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
           {
             
           }
@@ -72,20 +78,38 @@ int main()
           
           if(dia == "no")
           {
-            string job;
-cout << "What Job must I do then?" << endl;
-cin >> job;
+            
           }
           
       }
   
     if(envir != "1", "2")
       {
-          string job;
-cout << "What Job must I do then?" << endl;
-cin >> job;
+        string what; 
+        cout << "Then,what do you want me to do?" << endl;
+        cin >> what;
+        if(what == "kill", "Kill", "KILL")
+          {
+            cout << "I can not!!" << endl;
+            sleep(25);            
+            main();
+          }
+        if(what == "Destroy Network", "DESTROY NETWORK", "DESTROYNETWORK", "destroynetwork", "destory network", "Destroy_Network", "DESTROY_NETWORK", "destory_network")
+          {
+            cout << "I will not!!" << endl;
+            sleep(25);            
+            main();
+          }
+        if(what == "Destroy Titans", "DESTROYTITANS", "DESTROY TITAN", "destroy titans", "Destroy_Titans", "DESTROY_TITAN", "destroy_titans")
+          {
+            cout << "We can not!!" << endl;
+            sleep(25);
+            main();
+          }
+        if(what != "Destroy Network", "DESTROY NETWORK", "DESTROYNETWORK", "destroynetwork", "destory network", "Destroy_Network", "DESTROY_NETWORK", "destory_network",  "Destroy Titans", "DESTROYTITANS", "DESTROY TITAN", "destroy titans", "Destroy_Titans", "DESTROY_TITAN", "destroy_titans", "kill", "Kill", "KILL")
+          {
+           main();
+          }
+
       }
-
-
-
   }
