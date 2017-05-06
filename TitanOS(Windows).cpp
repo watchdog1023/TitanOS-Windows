@@ -13,6 +13,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 //#include<dos.h>
+//Internet Connectivity 
+#include <winsock2.h>
+#include <ws2tcpip.h>
 
 using namespace std;
 
