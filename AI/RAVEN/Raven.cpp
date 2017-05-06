@@ -19,6 +19,9 @@
 //C libs to use system function
 #include<stdio.h>
 #include<stdlib.h>
+//Internet Connectivity 
+#include <winsock2.h>
+#include <ws2tcpip.h>
 
 using namespace std;
 
