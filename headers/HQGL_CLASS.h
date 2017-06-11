@@ -1,4 +1,5 @@
-#ifndef HQGL_CLASS                      // By The Hidden Ghost
+// By The Hidden Ghost
+#ifndef HQGL_CLASS                     
 #define HQGL_CLASS
 
 #include <windows.h>
