@@ -1,4 +1,4 @@
-//This AI incharge of a the titan platforms and space elevator in project titan
+//This AI is incharge of the titan platforms and the space elevator in project TITAN
 //build raven_come_skykru
 #include<iostream>
 #include<sstream>
@@ -11,7 +11,7 @@
 #include<cstdio>
 //for date & time
 #include<ctime>
-//#include<dos.h>
+#include<dos.h>
 //for sleep fuction
 #include<conio.h>
 #include<windows.h>
@@ -19,6 +19,8 @@
 //C libs to use system function
 #include<stdio.h>
 #include<stdlib.h>
+//mp3 libs
+#include "HQGL_CLASS.h"
 //Internet Connectivity 
 #include <winsock2.h>
 #include <ws2tcpip.h>
@@ -48,7 +50,7 @@ int main()
     string envir;    
     system("color 02");
     cout << "I am Raven" << endl;
-    cout << "I am the Chief Mechanic on Project Titan" << endl;
+    cout << "I am the Chief Mechanic on Project TITAN" << endl;
     // output current date
     cout << "Today's date is " << timeinfo->tm_mday << " " << MONTHS[ timeinfo->tm_mon ] << " " << (timeinfo->tm_year + 1900) << endl;
     cout << "Where will I be Operating?" << endl;
