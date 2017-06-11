@@ -33,6 +33,10 @@ const char* MONTHS[] =
     "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
   };
 
+//for mp3 output
+HQGL            hTest;
+char Key;
+
 //Prototypes
 void lexa();
 void boot();
@@ -104,7 +108,7 @@ void bootinit()
         sleep(5);
         boot();
       }
-    if(code != "1023", "2109", "1738", "1408", "2046", "1095", "2026")
+ /*   if(code != "1023", "2109", "1738", "1408", "2046", "1095", "2026")
       {
         cout << "You are not a Director!" << endl;
         sleep(5);
@@ -116,6 +120,12 @@ void bootinit()
         system("start TitanOS.exe");
         system("exit");
       }
+  */
+ //testing code
+    if(code == "1111")
+    {
+      lexa();
+    }
 }
 
 void boot()
@@ -161,22 +171,28 @@ void lexa()
       timeinfo = localtime( &rawtime );   
 
       system("color 02");
+      hTest.HQGoFullScreenMode();
+      hTest.HQPlayMP3( "voice/greedings.mp3" );
       // output current date
       cout << "Today's date is " << timeinfo->tm_mday << " " << MONTHS[ timeinfo->tm_mon ] << " " << (timeinfo->tm_year + 1900) << endl;
       cout << "What task must I preform?" << endl;
-      sleep(2);        
+      sleep(4);        
       cout << "[kill] the Others"<<endl;
       cout <<"[rouge] Protocol"<<endl;
       cout <<"The [flame] is dead"<<endl;
       cout <<"[purge] system"<<endl;
-      cout << "[protocol X]" << endl;
+      cout << "[protocol] X" << endl;
+      hTest.HQStopMP3( "voice/greedings.mp3" );
       cin >> task;
       if(task == "kill")
          {
             string sure;
             cout <<"Are you sure they deserve to die?"<<endl;
+            hTest.HQPlayMP3( "voice/die.mp3" );
+            sleep(2);
+            hTest.HQStopMP3( "voice/die.mp3" );
             cin >> sure;
-            if(sure == "Yes", "yes", "YES", "Y", "y")
+            if(sure == "yes")
                 {
 //this is a temp statement
                     cout << "This will do nothing" << endl;
@@ -198,9 +214,12 @@ void lexa()
                     system("cls");
                     lexa();
                 }
-            if(sure != "Yes", "yes", "YES", "Y", "y")
+            if(sure != "yes")
                 {
                     cout << "They Live another day." << endl;
+                    hTest.HQPlayMP3( "voice/live_another_day.mp3" );
+                    sleep(2);
+                    hTest.HQStopMP3( "voice/live_another_day.mp3" );
                     system("cls");
                     lexa();
                 }
@@ -215,6 +234,10 @@ void lexa()
          {
             string flamesure;
             cout << "Are you sure?" << endl;
+            hTest.HQPlayMP3( "voice/are_you_sure.mp3" );
+            sleep(1);
+            hTest.HQStopMP3( "voice/are_you_sure.mp3" );
+            cin >> flamesure;
             if(flamesure == "Yes", "yes", "YES", "Y", "y")
               {
                 cout << "" << endl;
@@ -223,7 +246,9 @@ void lexa()
             if(flamesure != "Yes", "yes", "YES", "Y", "y")
               {
                 cout << "Thank The Creator" << endl;
-                sleep(5);
+                hTest.HQPlayMP3( "voice/thank_the_creater.mp3" );
+                sleep(1);
+                hTest.HQStopMP3( "voice/thank_the_creater.mp3" );
                 lexa();
               }
          }
@@ -232,6 +257,9 @@ void lexa()
          {
             string sure;
             cout << "Are you sure?" << endl;
+            hTest.HQPlayMP3( "voice/are_you_sure.mp3" );
+            sleep(1);
+            hTest.HQStopMP3( "voice/are_you_sure.mp3" );
             cin >> sure;
             if(sure == "Yes", "yes", "YES", "Y", "y")
             { 
@@ -249,11 +277,15 @@ void lexa()
             }
          }
 
-        if(task == "protocol x")
+        if(task == "protocol")
             {
-                cout << "You have chosing 'Protocol X'" << endl;
+                cout << "You have chosen 'Protocol X'" << endl;
+                hTest.HQPlayMP3( "voice/protocol_x_means.mp3" );
+                sleep(2);
                 string mean;        
                 cout << "Do you know what this means?" << endl;
+                sleep(2);
+                hTest.HQStopMP3( "voice/protocol_x_means.mp3" );
                 cin >> mean;
                 if(mean == "Yes", "yes", "YES", "Y", "y")
                     {
@@ -273,9 +305,12 @@ void lexa()
 void tier1()
     {
         string dia;
-        cout << "Activing root mode" << endl;
-        sleep(2);
-        cout << "Welcome Tier 1 Opperator,must I run a diagnostic test?" << endl;
+        cout << "Activating root mode" << endl;
+        hTest.HQPlayMP3( "voice/activating_root_mode.mp3" );
+        sleep(3);
+        cout << "Welcome Tier 1 Operator,must I run a diagnostic test?" << endl;
+        sleep(3);
+        hTest.HQStopMP3( "voice/activating_root_mode.mp3" );
         cin >> dia;
         if(dia == "Yes", "yes", "YES", "Y", "y")
             {
@@ -292,12 +327,15 @@ void tier1()
 void debug()
   {
     cout << "I am Lexa" << endl;
-    sleep(2);            
+    sleep(2);
+    hTest.HQPlayMP3( "voice/debug.mp3" );
     cout << "I am the TitanOS Commander" << endl;
     sleep(2);
     cout << "You are a TitanOS Tech" << endl;
     string debug;
     cout << "Do you want me to start a Terminal" << endl;
+    sleep(4.5);
+    hTest.HQStopMP3( "voice/debug.mp3" );
     cin >> debug;
     if(debug == "Yes", "yes", "YES", "Y", "y")
       {
