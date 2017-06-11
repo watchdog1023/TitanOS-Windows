@@ -11,7 +11,7 @@
 #include<cstdio>
 //for date & time
 #include<ctime>
-//#include<dos.h>
+#include<dos.h>
 //for sleep fuction
 #include<conio.h>
 #include<windows.h>
@@ -19,6 +19,8 @@
 //C libs to use system function
 #include<stdio.h>
 #include<stdlib.h>
+//mp3 libs
+#include "HQGL_CLASS.h"
 //Internet Connectivity 
 #include <winsock2.h>
 #include <ws2tcpip.h>
