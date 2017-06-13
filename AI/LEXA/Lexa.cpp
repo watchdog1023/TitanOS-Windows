@@ -22,10 +22,29 @@
 //mp3 libs
 #include "HQGL_CLASS.h"
 //Internet Connectivity 
-#include <winsock2.h>
-#include <ws2tcpip.h>
-
+#include<winsock2.h>
+#include<ws2tcpip.h>
+//Neural Net
+/*#include<Neuron.h>
+#include<Network.h>
+*/
 using namespace std;
+
+//functions
+std::string encrypt(std::string msg, std::string const& key)
+{
+    if(!key.size())
+        return msg;
+    
+    for (std::string::size_type i = 0; i < msg.size(); ++i)
+        msg[i] ^= key[i%key.size()];
+    return msg;
+}
+
+std::string decrypt(std::string const& msg, std::string const& key)
+{
+    return encrypt(msg, key); 
+}
 
 //constants
 const char* MONTHS[] =
@@ -171,7 +190,6 @@ void lexa()
       timeinfo = localtime( &rawtime );   
 
       system("color 02");
-      hTest.HQGoFullScreenMode();
       hTest.HQPlayMP3( "voice/greedings.mp3" );
       // output current date
       cout << "Today's date is " << timeinfo->tm_mday << " " << MONTHS[ timeinfo->tm_mon ] << " " << (timeinfo->tm_year + 1900) << endl;
@@ -182,6 +200,7 @@ void lexa()
       cout <<"The [flame] is dead"<<endl;
       cout <<"[purge] system"<<endl;
       cout << "[protocol] X" << endl;
+      cout << "[comms] Mode" << endl;
       hTest.HQStopMP3( "voice/greedings.mp3" );
       cin >> task;
       if(task == "kill")
@@ -299,8 +318,52 @@ void lexa()
                         cout << "Protocal X is not ready as yet" << endl;
                     }
             }
+        if(task == "comms")
+          {
+            string textchoice;
+            cout << "What would you like to do?" << endl;
+            cout << "[encrypt] text" << endl;
+            cout << "[decrypt] text" << endl;
+            cin >> textchoice;
+            if(textchoice == "encrypt")
+              {
+                cout << "Please enter the text,press enter to encrypt the text" << endl;
+                string message5;
+                cin >> message5;
+                string message = encrypt(message5 , "monkey");
+                ofstream myfile("encrypted.txt");
+                if (myfile.is_open())
+                  {
+                    myfile << message << endl;
+                  }
+             lexa();     
+            }
+            if(textchoice == "decrypt")
+            {
+              string message6;
+              cout << "Enter the encryted text" << endl;
+              cin >> message6;
+              cout << "\nDecrypted: " << decrypt(message6, "monkey") << endl;
+              string textoutput;
+              cout << "Must I output this to a .txt file" << endl;
+              cin >> textoutput;
+              if(textoutput == "yes")
+              {
+                ofstream myfile("decrypted.txt");
+                if (myfile.is_open())
+                  {
+                    myfile << decrypt(message6, "monkey") << endl;
+                  }
+              }
+              if(textoutput != "yes")
+              {
+               sleep(20);
+               lexa();
+              }
+            }
+          }
     
-  }
+  } 
 
 void tier1()
     {
@@ -337,12 +400,43 @@ void debug()
     sleep(4.5);
     hTest.HQStopMP3( "voice/debug.mp3" );
     cin >> debug;
-    if(debug == "Yes", "yes", "YES", "Y", "y")
+    if(debug == "yes")
       {
         system("cmd");
       }
-    if(debug != "Yes", "yes", "YES", "Y", "y")
+    if(debug != "yes")
       {
-        main();  
+        string dia;
+        cout << "Do you want me to run a diagnostic test?" << endl;
+        cin >> dia;
+        if(dia == "yes")
+            {
+            
+            }
+        if(dia != "yes")
+            {
+                loop:
+                    string what;
+                    cout << "What do you want to do then?" << endl;
+                    cin >> what;
+                    if(what == "")
+                    {   
+                
+                    }
+                    if(what == "")
+                    {   
+                
+                    }
+                    if(what == "")
+                    {   
+                
+                    }
+                    if(what != "")
+                    {   
+                        goto loop;
+                    }
+                    
+            }
+        
       }
 }
