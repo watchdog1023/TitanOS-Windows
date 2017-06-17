@@ -1,16 +1,34 @@
 #include<iostream>
-#include<string>
+#include<sstream>
 #include<fstream>
+#include<string>
+#include<vector>
+#include<cmath>
+#include<cstdlib>
+#include<cassert>
 #include<cstdio>
-//#include <dos.h>
+//for date & time
+#include<ctime>
+#include<dos.h>
 //for sleep fuction
-#include <conio.h> 
+#include<conio.h>
+#include<windows.h>
+#include<unistd.h>
 //C libs to use system function
 #include<stdio.h>
 #include<stdlib.h>
+//mp3 libs
+#include "HQGL_CLASS.h"
 //Internet Connectivity 
-#include <winsock2.h>
-#include <ws2tcpip.h>
+#include<winsock2.h>
+#include<WinSock.h>
+#include<ws2tcpip.h>
+//Neural Net
+/*#include<Neuron.h>
+#include<Network.h>
+*/
+//Parameters
+#pragma comment(lib, "wsock32.lib")
 
 using namespace std;
 
