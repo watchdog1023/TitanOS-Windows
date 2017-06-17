@@ -13,9 +13,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 //#include<dos.h>
-//Internet Connectivity 
-#include <winsock2.h>
-#include <ws2tcpip.h>
 
 using namespace std;
 
@@ -30,6 +27,7 @@ using namespace std;
 
 int main()
 	{
+		string choice;
 		cout << "What do you want to do?" << endl;
 		cout << "[Pilot] OS" << endl;
 		cout << "[Centeral] OS" << endl;
