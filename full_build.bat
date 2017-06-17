@@ -11,6 +11,7 @@ mkdir harley
 mkdir raven
 mkdir betty
 mkdir sid
+mkdir isac
 cd "C:\Users\Cameron\Desktop\code projects\C Programming\C++\WIP\TitanOS\Windows\build"
 
 REM //alexa
@@ -32,6 +33,11 @@ REM //sid
 g++ -v -Wwrite-strings -fpermissive -I ../headers/ -c ..\AI\SID\Sid.cpp -o ..\AI\SID\sid.o
 windres ..\AI\SID\icon.rc ..\AI\SID\icon.o
 g++ -v -static -static-libgcc -static-libstdc++ -I ../headers/ -o AI\sid\Sid.exe ..\AI\SID\sid.o ..\AI\SID\icon.o -lwinmm C:\Mingw\lib\libws2_32.a
+
+REM//isac
+g++ -v -Wwrite-strings -fpermissive -I ../headers/ -c ..\AI\Isac.cpp -o ..AI\ISAC\Isac.o
+windres ..\AI\ISAC\icon.rc ..\AI\ISAC\icon.o
+g++ -v -static -static-libgcc -static-libstdc++ -I ../headers/ -o AI\isac\Isac.exe ..\AI\ISAC\Isac.o ..\AI\ISAC\icon.o -lwinmm C:\Mingw\lib\libws2_32.a
 
 REM //lexa
 g++ -v -Wwrite-strings -fpermissive -I ../headers/ -c ..\AI\LEXA\Lexa.cpp -o ..\AI\LEXA\lexa.o
@@ -67,6 +73,8 @@ rm -v ..\AI\LEXA\lexa.o
 rm -v ..\AI\LEXA\icon.o
 rm -v ..\AI\RAVEN\icon.o 
 rm -v ..\AI\RAVEN\Raven.o
+rm -v ..\AI\ISAC\Isac.o 
+rm -v ..\AI\ISAC\icon.o 
 rm -v ..\Sub-system\PilotOS\PilotOS.o 
 rm -v ..\Sub-system\PilotOS\icon.o
 echo Copying Voice Data
@@ -76,4 +84,5 @@ cp -vr ..\AI\RAVEN\voice AI\RAVEN
 cp -vr ..\AI\SID\voice AI\SID
 cp -vr ..\AI\HARLEY\voice AI\HARLEY
 cp -vr ..\AI\BETTY\voice AI\BETTY
+cp -vr ..\AI\ISAC\voice AI\ISAC
 cd C:\Users\Cameron\Desktop\code projects\C Programming\C++\WIP\TitanOS\Windows
