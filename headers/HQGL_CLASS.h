@@ -1,4 +1,4 @@
-#ifndef HQGL_CLASS                     
+#ifndef HQGL_CLASS                      
 #define HQGL_CLASS
 
 #include <windows.h>
