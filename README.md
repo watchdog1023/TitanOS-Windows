@@ -7,4 +7,4 @@ Build with -static -static-libgcc -static-libstdc++ flags at start and -lwinmm C
 
 *build(full_build.bat) file will be packaged with the project
 
-*The file assume that mingw is already added to your system path Variable 
+*The file assume that C:/mingw/bin and C:/cygwin/bin is already added to your system path Variable 
