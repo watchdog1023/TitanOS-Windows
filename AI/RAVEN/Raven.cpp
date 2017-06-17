@@ -22,10 +22,34 @@
 //mp3 libs
 #include "HQGL_CLASS.h"
 //Internet Connectivity 
-#include <winsock2.h>
-#include <ws2tcpip.h>
+#include<winsock2.h>
+#include<WinSock.h>
+#include<ws2tcpip.h>
+//Neural Net
+/*
+#include<Neuron.h>
+#include<Network.h>
+*/
+//Parameters
+#pragma comment(lib, "wsock32.lib")
 
 using namespace std;
+
+//functions
+std::string encrypt(std::string msg, std::string const& key)
+{
+    if(!key.size())
+        return msg;
+    
+    for (std::string::size_type i = 0; i < msg.size(); ++i)
+        msg[i] ^= key[i%key.size()];
+    return msg;
+}
+
+std::string decrypt(std::string const& msg, std::string const& key)
+{
+    return encrypt(msg, key); 
+}
 
 //constants
 const char* MONTHS[] =
@@ -33,8 +57,14 @@ const char* MONTHS[] =
     "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
   };
 
-//Prototypes
+//for mp3 output
+HQGL            hTest;
+char Key;
 
+//Prototypes
+void server();
+void client();
+void debug();
 
 //global variables
 
@@ -50,6 +80,7 @@ int main()
     string envir;    
     system("color 02");
     cout << "I am Raven" << endl;
+    hTest.HQPlayMP3( "voice/greedings.mp3" );
     cout << "I am the Chief Mechanic on Project TITAN" << endl;
     // output current date
     cout << "Today's date is " << timeinfo->tm_mday << " " << MONTHS[ timeinfo->tm_mon ] << " " << (timeinfo->tm_year + 1900) << endl;

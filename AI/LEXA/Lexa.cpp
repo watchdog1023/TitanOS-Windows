@@ -23,11 +23,15 @@
 #include "HQGL_CLASS.h"
 //Internet Connectivity 
 #include<winsock2.h>
+#include<WinSock.h>
 #include<ws2tcpip.h>
 //Neural Net
 /*#include<Neuron.h>
 #include<Network.h>
 */
+//Parameters
+#pragma comment(lib, "wsock32.lib")
+
 using namespace std;
 
 //functions
@@ -62,6 +66,9 @@ void boot();
 void tier1();
 void debug();
 void bootinit();
+void server();
+void client();
+
 
 //global variables
 string task;
@@ -319,49 +326,81 @@ void lexa()
                     }
             }
         if(task == "comms")
-          {
-            string textchoice;
-            cout << "What would you like to do?" << endl;
-            cout << "[encrypt] text" << endl;
-            cout << "[decrypt] text" << endl;
-            cin >> textchoice;
-            if(textchoice == "encrypt")
-              {
-                cout << "Please enter the text,press enter to encrypt the text" << endl;
-                string message5;
-                cin >> message5;
-                string message = encrypt(message5 , "monkey");
-                ofstream myfile("encrypted.txt");
-                if (myfile.is_open())
-                  {
-                    myfile << message << endl;
-                  }
-             lexa();     
-            }
-            if(textchoice == "decrypt")
-            {
-              string message6;
-              cout << "Enter the encryted text" << endl;
-              cin >> message6;
-              cout << "\nDecrypted: " << decrypt(message6, "monkey") << endl;
-              string textoutput;
-              cout << "Must I output this to a .txt file" << endl;
-              cin >> textoutput;
-              if(textoutput == "yes")
-              {
-                ofstream myfile("decrypted.txt");
-                if (myfile.is_open())
-                  {
-                    myfile << decrypt(message6, "monkey") << endl;
-                  }
-              }
-              if(textoutput != "yes")
-              {
-               sleep(20);
-               lexa();
-              }
-            }
-          }
+        {
+            string mode;
+            hTest.HQPlayMP3( "voice/mode_start.mp3" );
+            sleep(2);
+            cout << "Which mode do you want to start?" << endl;
+            cout << "[p2p]" << endl;
+            cout << "[text]" << endl;
+            hTest.HQStopMP3( "voice/mode_start.mp3" );
+            cin >> mode;
+            if(mode == "p2p")
+                {
+                    string mode_p2p;
+                    hTest.HQPlayMP3( "voice/like_to_be.mp3" );
+                    cout << "Which would you like to be?" << endl;
+                    cout << "[client]" << endl;
+                    cout << "[server]" << endl;
+                    sleep(2);
+                    hTest.HQStopMP3( "voice/like_to_be.mp3" );
+                    cin >> mode_p2p;
+                    if(mode_p2p == "server")
+                        {
+                            server();
+                        }
+                    if(mode_p2p == "client")
+                        {
+                            client();
+                        }
+                }    
+            if(mode == "text")
+                {    
+                    string textchoice;
+                    cout << "What would you like to do?" << endl;
+                    cout << "[encrypt] text" << endl;
+                    cout << "[decrypt] text" << endl;
+                    cin >> textchoice;
+                    if(textchoice == "encrypt")
+                        {
+                            string message5;
+                            cout << "Please enter the text,press enter to encrypt the text" << endl;
+                            cin >> message5;
+                            string message = encrypt(message5 , "monkey");
+                            ofstream myfile("encrypted.txt");
+                            if (myfile.is_open())
+                                {
+                                    myfile << message << endl;
+                                }
+                            system("cls");    
+                            lexa();     
+                        }
+                    if(textchoice == "decrypt")
+                        {
+                            string message6;
+                            cout << "Enter the encrypted text" << endl;
+                            cin >> message6;
+                            cout << "\nDecrypted: " << decrypt(message6, "monkey") << endl;
+                            string textoutput;
+                            cout << "Must I output this to a .txt file?" << endl;
+                            cin >> textoutput;
+                            if(textoutput == "yes")
+                                {
+                                    ofstream myfile2("decrypted.txt");
+                                    if (myfile2.is_open())
+                                        {
+                                            myfile2 << decrypt(message6, "monkey") << endl;
+                                        }
+                                }
+                            if(textoutput != "yes")
+                                {
+                                    sleep(20);
+                                    system("cls");
+                                    lexa();
+                                }
+                        }
+                }
+        }
     
   } 
 
@@ -378,11 +417,13 @@ void tier1()
         if(dia == "Yes", "yes", "YES", "Y", "y")
             {
                 cout << "OK" << endl;
+                system("cls");
                 lexa();
             }
         if(dia != "Yes", "yes", "YES", "Y", "y")
             {
               cout << "Ok" << endl;
+              system("cls");
               lexa();
             }
     }
@@ -408,6 +449,9 @@ void debug()
       {
         string dia;
         cout << "Do you want me to run a diagnostic test?" << endl;
+        hTest.HQPlayMP3( "voice/start_diagnostic.mp3" );
+        sleep(2);
+        hTest.HQStopMP3( "voice/start_diagnostic.mp3" );
         cin >> dia;
         if(dia == "yes")
             {
@@ -417,7 +461,10 @@ void debug()
             {
                 loop:
                     string what;
+                    hTest.HQPlayMP3( "voice/do_then.mp3" );
+                    sleep(2);
                     cout << "What do you want to do then?" << endl;
+                    hTest.HQStopMP3( "voice/do_then.mp3" );
                     cin >> what;
                     if(what == "")
                     {   
@@ -439,4 +486,102 @@ void debug()
             }
         
       }
+}
+
+
+void server()
+{
+    //Creating the server vars
+    WSADATA WSAData;
+    SOCKET server, client;
+    SOCKADDR_IN serverAddr, clientAddr;
+    WSAStartup(MAKEWORD(2,0), &WSAData);
+    server = socket(AF_INET, SOCK_STREAM, 0);
+    serverAddr.sin_addr.s_addr = INADDR_ANY;
+    serverAddr.sin_family = AF_INET;
+    serverAddr.sin_port = htons(5555);
+    bind(server, (SOCKADDR *)&serverAddr, sizeof(serverAddr));
+    listen(server, 0);
+    
+    //Display IP Address vars
+    WORD wVersionRequested;
+	WSADATA wsaData;
+	char name[255];
+	PHOSTENT hostinfo;
+	wVersionRequested = MAKEWORD( 1, 1 );
+	char *ip;
+
+    cout << "Listening for incoming connections..." << endl;
+    //Display IP Address
+    if ( WSAStartup( wVersionRequested, &wsaData ) == 0 )
+		if( gethostname ( name, sizeof(name)) == 0)
+		{
+			printf("Host name: %s\n", name);
+
+			if((hostinfo = gethostbyname(name)) != NULL)
+			{
+				int nCount = 0;
+				while(hostinfo->h_addr_list[nCount])
+				{
+					ip = inet_ntoa (*(struct in_addr *)hostinfo->h_addr_list[nCount]);
+
+					printf("IP #%d: %s\n", ++nCount, ip);
+				}
+			}
+		}
+ 
+    char buffer[1024];
+    int clientAddrSize = sizeof(clientAddr);
+    if((client = accept(server, (SOCKADDR *)&clientAddr, &clientAddrSize)) != INVALID_SOCKET)
+    {
+        cout << "Client connected!" << endl;
+        recv(client, buffer, sizeof(buffer), 0);
+        cout << "Client says: " << buffer << endl;
+        memset(buffer, 0, sizeof(buffer));
+ 
+        closesocket(client);
+        cout << "Client disconnected." << endl;
+        system("cls");
+        lexa();
+    }
+}
+
+void client()
+{
+    hTest.HQPlayMP3( "voice/server_ip.mp3" );
+    cout << "Enter the Server's IP Address" << endl;
+    sleep(2);
+    hTest.HQStopMP3( "voice/server_ip.mp3" );
+    string server_ip;
+    cin >> server_ip;
+    const char* ip_server = server_ip.c_str();
+    
+    WSADATA WSAData;
+    SOCKET server;
+    SOCKADDR_IN addr;
+    WSAStartup(MAKEWORD(2,0), &WSAData);
+    server = socket(AF_INET, SOCK_STREAM, 0);
+    addr.sin_addr.s_addr = inet_addr(ip_server); 
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(5555);
+    connect(server, (SOCKADDR *)&addr, sizeof(addr));
+    cout << "Connected to server: " + server_ip << endl;
+ 
+    char buffer[1024];
+    hTest.HQPlayMP3( "voice/message_input.mp3" );
+    cout << "Please input the message:" << endl;
+    sleep(2);
+    hTest.HQStopMP3( "voice/message_input.mp3" );
+    cin >> buffer;
+    send(server, buffer, sizeof(buffer), 0);
+    hTest.HQPlayMP3( "voice/message_sent.mp3" );
+    cout << "Message sent!" << endl;
+    sleep(2);
+    hTest.HQStopMP3( "voice/message_sent.mp3" );
+ 
+    closesocket(server);
+    WSACleanup();
+    cout << "Socket closed." << endl << endl;
+    system("cls");
+    lexa();
 }
