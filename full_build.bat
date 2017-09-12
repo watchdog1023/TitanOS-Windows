@@ -1,4 +1,5 @@
 @echo off
+cd "C:\Users\Cameron\Desktop\code projects\C Programming\C++\WIP\TitanOS\Windows"
 rm -vr build
 mkdir build
 cd build
@@ -20,47 +21,47 @@ g++ -v -Wwrite-strings -c ../include/download.cpp -o download.o
 REM //alexa
 g++ -v -Wwrite-strings -fpermissive -I ../include/ -c ../AI/ALEXA/Alexa.cpp -o ../AI/ALEXA/alexa.o
 windres ..\AI\ALEXA\icon.rc ..\AI\ALEXA\icon.o
-g++ -v -static -static-libgcc -static-libstdc++ -I ../include/ -L ../libs/ -o AI\alexa\Alexa.exe ..\AI\ALEXA\alexa.o download.o ..\AI\ALEXA\icon.o -lchilkat-9.5.0 -lcrypt32 -lws2_32 -ldnsapi -lwinmm -lwininet -lpthread -lopencv_core249 -lopencv_highgui249
+g++ -v -static -static-libgcc -static-libstdc++ -I ../include/ -L ../libs/ -o AI\alexa\Alexa.exe ..\AI\ALEXA\alexa.o download.o ..\AI\ALEXA\icon.o -lchilkat-9.5.0 -lpthreadGCE2 -lpthreadGC2 -lcrypt32 -lws2_32 -ldnsapi -lwinmm -lwininet -lopencv_core249 -lopencv_highgui249
 
 REM //betty
 g++ -v -Wwrite-strings -fpermissive -I ../include/ -c ..\AI\BETTY\Betty.cpp -o ..\AI\BETTY\betty.o
 windres ..\AI\BETTY\icon.rc ..\AI\BETTY\icon.o
-g++ -v -static -static-libgcc -static-libstdc++ -I ../include/ -L ../libs/ -o AI\betty\Betty.exe ..\AI\BETTY\betty.o download.o ..\AI\BETTY\icon.o -lchilkat-9.5.0 -lcrypt32 -lws2_32 -ldnsapi -lwinmm -lwininet -lpthread -lopencv_core249 -lopencv_highgui249
+g++ -v -static -static-libgcc -static-libstdc++ -I ../include/ -L ../libs/ -o AI\betty\Betty.exe ..\AI\BETTY\betty.o download.o ..\AI\BETTY\icon.o -lchilkat-9.5.0 -lpthreadGCE2 -lpthreadGC2 -lcrypt32 -lws2_32 -ldnsapi -lwinmm -lwininet -lopencv_core249 -lopencv_highgui249
 
 REM //harley
 g++ -v -Wwrite-strings -fpermissive -I ../include/ -c ..\AI\HARLEY\Harley.cpp -o ..\AI\HARLEY\harley.o
 windres ..\AI\HARLEY\icon.rc ..\AI\HARLEY\icon.o
-g++ -v -static -static-libgcc -static-libstdc++ -I ../include/ -L ../libs/ -o AI\harley\Harley.exe ..\AI\HARLEY\harley.o download.o ..\AI\HARLEY\icon.o -lchilkat-9.5.0 -lcrypt32 -lws2_32 -ldnsapi -lwinmm -lwininet -lpthread -lopencv_core249 -lopencv_highgui249
+g++ -v -static -static-libgcc -static-libstdc++ -I ../include/ -L ../libs/ -o AI\harley\Harley.exe ..\AI\HARLEY\harley.o download.o ..\AI\HARLEY\icon.o -lchilkat-9.5.0 -lpthreadGCE2 -lpthreadGC2 -lcrypt32 -lws2_32 -ldnsapi -lwinmm -lwininet -lopencv_core249 -lopencv_highgui249
 
 REM //sid
 g++ -v -Wwrite-strings -fpermissive -I ../include/ -c ..\AI\SID\Sid.cpp -o ..\AI\SID\sid.o
 windres ..\AI\SID\icon.rc ..\AI\SID\icon.o
-g++ -v -static -static-libgcc -static-libstdc++ -I ../include/ -L ../libs/ -o AI\sid\Sid.exe ..\AI\SID\sid.o download.o ..\AI\SID\icon.o -lchilkat-9.5.0 -lcrypt32 -lws2_32 -ldnsapi -lwinmm -lwininet -lpthread -lopencv_core249 -lopencv_highgui249
+g++ -v -static -static-libgcc -static-libstdc++ -I ../include/ -L ../libs/ -o AI\sid\Sid.exe ..\AI\SID\sid.o download.o ..\AI\SID\icon.o -lchilkat-9.5.0 -lpthreadGCE2 -lpthreadGC2 -lcrypt32 -lws2_32 -ldnsapi -lwinmm -lwininet -lopencv_core249 -lopencv_highgui249
 
 REM //isac
 g++ -v -Wwrite-strings -fpermissive -I ../include/ -c ..\AI\Isac.cpp -o ..AI\ISAC\Isac.o
 windres ..\AI\ISAC\icon.rc ..\AI\ISAC\icon.o
-g++ -v -static -static-libgcc -static-libstdc++ -I ../include/ -L ../libs/ -o AI\isac\Isac.exe ..\AI\ISAC\Isac.o download.o ..\AI\ISAC\icon.o -lchilkat-9.5.0 -lcrypt32 -lws2_32 -ldnsapi -lwinmm -lwininet -lpthread -lopencv_core249 -lopencv_highgui249
+g++ -v -static -static-libgcc -static-libstdc++ -I ../include/ -L ../libs/ -o AI\isac\Isac.exe ..\AI\ISAC\Isac.o download.o ..\AI\ISAC\icon.o -lchilkat-9.5.0 -lpthreadGCE2 -lpthreadGC2 -lcrypt32 -lws2_32 -ldnsapi -lwinmm -lwininet -lopencv_core249 -lopencv_highgui249
 
 REM //lexa
 g++ -v -Wwrite-strings -fpermissive -I ../include/ -c ..\AI\LEXA\Lexa.cpp -o ..\AI\LEXA\lexa.o
 windres ..\AI\LEXA\icon.rc ..\AI\LEXA\icon.o
-g++ -v -static -static-libgcc -static-libstdc++ -I ../include/ -L ../libs/ -o AI\lexa\Lexa.exe ..\AI\LEXA\lexa.o download.o ..\AI\LEXA\icon.o -lchilkat-9.5.0 -lcrypt32 -lws2_32 -ldnsapi -lwinmm -lwininet -lpthread -lopencv_core249 -lopencv_highgui249
+g++ -v -static -static-libgcc -static-libstdc++ -I ../include/ -L ../libs/ -o AI\lexa\Lexa.exe ..\AI\LEXA\lexa.o download.o ..\AI\LEXA\icon.o -lchilkat-9.5.0 -lpthreadGCE2 -lpthreadGC2 -lcrypt32 -lws2_32 -ldnsapi -lwinmm -lwininet -lopencv_core249 -lopencv_highgui249
 
 REM //raven
 g++ -v -Wwrite-strings -fpermissive -I ../include/ -c ..\AI\RAVEN\Raven.cpp -o ..\AI\RAVEN\Raven.o
 windres ..\AI\RAVEN\icon.rc ..\AI\RAVEN\icon.o
-g++ -v -static -static-libgcc -static-libstdc++ -I ../include/ -L ../libs/ -o AI\raven\Raven.exe ..\AI\RAVEN\icon.o download.o ..\AI\RAVEN\Raven.o -lchilkat-9.5.0 -lcrypt32 -lws2_32 -ldnsapi -lwinmm -lwininet -lpthread -lopencv_core249 -lopencv_highgui249
+g++ -v -static -static-libgcc -static-libstdc++ -I ../include/ -L ../libs/ -o AI\raven\Raven.exe ..\AI\RAVEN\icon.o download.o ..\AI\RAVEN\Raven.o -lchilkat-9.5.0 -lpthreadGCE2 -lpthreadGC2 -lcrypt32 -lws2_32 -ldnsapi -lwinmm -lwininet -lopencv_core249 -lopencv_highgui249
 
 REM //PilotOS
 g++ -v -Wwrite-strings -fpermissive -I ../include/ -c ..\Sub-system\PilotOS\PilotOS.cpp -o ..\Sub-system\PilotOS\PilotOS.o
 windres ..\Sub-system\PilotOS\icon.rc ..\Sub-system\PilotOS\icon.o
-g++ -v -static -static-libgcc -static-libstdc++ -I ../include/ -L ../libs/ -o Sub-system\PilotOS.exe ..\Sub-system\PilotOS\PilotOS.o download.o ..\Sub-system\PilotOS\icon.o -lchilkat-9.5.0 -lcrypt32 -lws2_32 -ldnsapi -lwinmm -lwininet -lpthread -lopencv_core249 -lopencv_highgui249
+g++ -v -static -static-libgcc -static-libstdc++ -I ../include/ -L ../libs/ -o Sub-system\PilotOS.exe ..\Sub-system\PilotOS\PilotOS.o download.o ..\Sub-system\PilotOS\icon.o -lchilkat-9.5.0 -lpthreadGCE2 -lpthreadGC2 -lcrypt32 -lws2_32 -ldnsapi -lwinmm -lwininet -lopencv_core249 -lopencv_highgui249ighgui249
 
 REM //OS
-g++ -v -Wwrite-strings -fpermissive -c ..\TitanOS(Windows).cpp -o ..\titan.o
+g++ -v -Wwrite-strings -fpermissive -I ../include/ -c ..\TitanOS(Windows).cpp -o ..\titan.o
 windres ..\icon.rc ..\icon.o
-g++ -v -static -static-libgcc -static-libstdc++ -o TitanOS.exe ..\titan.o download.o ..\icon.o 
+g++ -v -static -static-libgcc -static-libstdc++ -I ../include/ -L ../libs/ -o TitanOS.exe ..\titan.o download.o ..\icon.o  -lchilkat-9.5.0 -lpthreadGCE2 -lpthreadGC2 -lcrypt32 -lws2_32 -ldnsapi -lwinmm -lwininet -lopencv_core249 -lopencv_highgui249
 echo cleaning the output files
 rm -v ..\icon.o
 rm -v ..\titan.o
