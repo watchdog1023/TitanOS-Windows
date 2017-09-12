@@ -3,6 +3,7 @@
 #include<iostream>
 #include<sstream>
 #include<fstream>
+#include<istream>
 #include<string>
 #include<vector>
 #include<cmath>
@@ -11,6 +12,7 @@
 #include<cstdio>
 //for date & time
 #include<ctime>
+#include<time.h>
 #include<dos.h>
 //for sleep fuction
 #include<conio.h>
@@ -20,11 +22,27 @@
 #include<stdio.h>
 #include<stdlib.h>
 //mp3 libs
-#include "HQGL_CLASS.h"
+#include "include/HQGL_CLASS.h"
+//Downloading
+#include<wininet.h>
+#include "include/download.h"
+//UUID Generaterion
+#include "include/CkCrypt2.h"
+//Spidering
+#include "include/CkSpider.h"
+#include "include/CkStringArray.h"
+//Threading
+#include<limits.h>
 //Internet Connectivity 
 #include<winsock2.h>
 #include<WinSock.h>
 #include<ws2tcpip.h>
+//MYSQL database
+
+//Video and Image Displaying
+#include "include/opencv2/highgui/highgui.hpp"
+#include "include/opencv/cv.h"
+#include "include/opencv/highgui.h"
 //Neural Net
 /*
 #include<Neuron.h>

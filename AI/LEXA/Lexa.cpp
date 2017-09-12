@@ -3,6 +3,7 @@
 #include<iostream>
 #include<sstream>
 #include<fstream>
+#include<istream>
 #include<string>
 #include<vector>
 #include<cmath>
@@ -11,6 +12,7 @@
 #include<cstdio>
 //for date & time
 #include<ctime>
+#include<time.h>
 #include<dos.h>
 //for sleep fuction
 #include<conio.h>
@@ -20,11 +22,27 @@
 #include<stdio.h>
 #include<stdlib.h>
 //mp3 libs
-#include "HQGL_CLASS.h"
+#include "include/HQGL_CLASS.h"
+//Downloading
+#include<wininet.h>
+#include "include/download.h"
+//UUID Generaterion
+#include "include/CkCrypt2.h"
+//Spidering
+#include "include/CkSpider.h"
+#include "include/CkStringArray.h"
+//Threading
+#include<limits.h>
 //Internet Connectivity 
 #include<winsock2.h>
 #include<WinSock.h>
 #include<ws2tcpip.h>
+//MYSQL database
+
+//Video and Image Displaying
+#include "include/opencv2/highgui/highgui.hpp"
+#include "include/opencv/cv.h"
+#include "include/opencv/highgui.h"
 //Neural Net
 /*#include<Neuron.h>
 #include<Network.h>
@@ -33,9 +51,10 @@
 #pragma comment(lib, "wsock32.lib")
 
 using namespace std;
+using namespace cv;
 
 //functions
-std::string encrypt(std::string msg, std::string const& key)
+string encrypt(string msg, string const& key)
 {
     if(!key.size())
         return msg;
@@ -45,7 +64,7 @@ std::string encrypt(std::string msg, std::string const& key)
     return msg;
 }
 
-std::string decrypt(std::string const& msg, std::string const& key)
+string decrypt(string const& msg, string const& key)
 {
     return encrypt(msg, key); 
 }
@@ -57,7 +76,7 @@ const char* MONTHS[] =
   };
 
 //for mp3 output
-HQGL            hTest;
+HQGL hTest;
 char Key;
 
 //Prototypes
@@ -69,9 +88,11 @@ void bootinit();
 void server();
 void client();
 
-
 //global variables
 string task;
+
+//Greeting Variable
+string greet;
 
 int main()
 {  
@@ -91,37 +112,10 @@ int main()
 void bootinit()
 {
     system("color 02");
+    greet = "1";
     string code;
     cout << "Please enter Director code:" << endl;
     cin >> code;
-    if(code == "2046")
-        {
-          cout << "Welcome Tier II Director,Steven" << endl;
-          sleep(5);
-          boot();
-        }
-    if(code == "2109")
-      {
-        cout << "Welcome Tier II Director,Serena" << endl;
-        sleep(5);
-        boot();
-      }
-    if(code == "1023")
-      {
-        tier1();
-      }
-    if(code == "1738")
-      {
-        cout << "Welcome Tier II Director,Sheldon" << endl;
-        sleep(5);
-        boot();
-      }
-    if(code == "1408")
-      {
-        cout << "Welcome Tier II Director,Jessie" << endl;
-        sleep(5);
-        boot();
-      }
     if(code == "1095")
       {
         cout << "Welcome TitanOS Tech" << endl;
@@ -189,7 +183,7 @@ void boot()
 }
 
 void lexa()
-  {
+    {
       //get date variables
       time_t     rawtime;
       struct tm* timeinfo;
@@ -197,18 +191,28 @@ void lexa()
       timeinfo = localtime( &rawtime );   
 
       system("color 02");
-      hTest.HQPlayMP3( "voice/greedings.mp3" );
+      if(greet == "1")
+      {
+        hTest.HQPlayMP3( "voice/greedings1.mp3" );
+        sleep(4);        
+      }
+      if(greet == "2")
+      {
+        hTest.HQPlayMP3( "voice/greedings2.mp3" );
+        sleep(2);        
+      }
       // output current date
       cout << "Today's date is " << timeinfo->tm_mday << " " << MONTHS[ timeinfo->tm_mon ] << " " << (timeinfo->tm_year + 1900) << endl;
       cout << "What task must I preform?" << endl;
-      sleep(4);        
       cout << "[kill] the Others"<<endl;
       cout <<"[rouge] Protocol"<<endl;
       cout <<"The [flame] is dead"<<endl;
       cout <<"[purge] system"<<endl;
       cout << "[protocol] X" << endl;
       cout << "[comms] Mode" << endl;
-      hTest.HQStopMP3( "voice/greedings.mp3" );
+      hTest.HQStopMP3( "voice/greedings1.mp3" );
+      hTest.HQStopMP3( "voice/greedings2.mp3" );
+      greet = "2";
       cin >> task;
       if(task == "kill")
          {
@@ -553,7 +557,7 @@ void client()
     sleep(2);
     hTest.HQStopMP3( "voice/server_ip.mp3" );
     string server_ip;
-    cin >> server_ip;
+    getline(cin, server_ip);
     const char* ip_server = server_ip.c_str();
     
     WSADATA WSAData;

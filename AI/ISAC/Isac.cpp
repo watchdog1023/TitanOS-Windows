@@ -58,6 +58,10 @@ const char* MONTHS[] =
     "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
   };
 
+//for mp3 output
+HQGL hTest;
+char Key;
+
 //Prototypes
 void start();
 void server();
@@ -168,23 +172,23 @@ void start()
     if(choice == "Protocol X")
         {
             cout << "This section is restricted" << endl;
-                    cout << "Redirecting to TitanOS Kernel AI" << endl;
-                    cout << "Please wait" << endl;
-                    cout <<"........" <<endl;
-                    sleep(2);
-                    cout <<"........" <<endl;
-                    sleep(2);
-                    cout <<"........" <<endl;
-                    sleep(2);
-                    cout <<"........" <<endl;
-                    sleep(2);
-                    cout <<"........" <<endl;
-                    sleep(2);
-                    cout <<"........" <<endl;
-                    sleep(2);
-                    system("cd ..");
-                    system("start lexa/Lexa.exe");
-                    system("exit");
+            cout << "Redirecting to TitanOS Kernel AI" << endl;
+            cout << "Please wait" << endl;
+            cout <<"........" <<endl;
+            sleep(2);
+            cout <<"........" <<endl;
+            sleep(2);
+            cout <<"........" <<endl;
+            sleep(2);
+            cout <<"........" <<endl;
+            sleep(2);
+            cout <<"........" <<endl;
+            sleep(2);
+            cout <<"........" <<endl;
+            sleep(2);
+            system("cd ..");
+            system("start lexa/Lexa.exe");
+            system("exit");
         }
     if(choice == "quit")
         {
