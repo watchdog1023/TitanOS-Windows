@@ -1,9 +1,9 @@
 # TitanOS-Windows
-compile with -fpermissive and -Wwrite-strings flags
+Compile with -fpermissive -Wwrite-strings -Wdeprecated-declarations -Wfatal-errors flags
 
-create icon data with windres icon.rc icon.o
+Create icon data with windres icon.rc icon.o
 
-Build with -static -static-libgcc -static-libstdc++ flags at start and -lwinmm C:/path to/libws2_32.a flag at end
+Build with -static-libgcc -static-libstdc++ flags at start and -lchilkat-9.5.0 -lgdi32 -lcrypt32 -lws2_32 -ldnsapi -lwinmm -lwininet -lmingw32 -lopencv_core330.dll -lopencv_highgui330.dll -lopencv_imgproc330.dll -lopencv_imgcodecs330.dll -lopencv_videoio330.dll -lopencv_video330.dll -lboost_atomic -lboost_chrono -lboost_thread -lopennn -ltinyxml2 -lpython36 flags at end(include all the .o files when building)
 
 *build(full_build.bat) file will be packaged with the project
 
